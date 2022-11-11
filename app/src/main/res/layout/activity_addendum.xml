@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Addendum">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/consLayuot"
+        android:layout_width="76dp"
+        android:layout_height="match_parent"
+        android:background="@drawable/layout_background"
+        android:shadowColor="#000"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="50"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="0dp">
+
+        <ImageView
+            android:id="@+id/photoName"
+            android:layout_width="62dp"
+            android:layout_height="49dp"
+            android:layout_marginBottom="16dp"
+            android:contentDescription="Sales"
+            android:shadowColor="#000"
+            android:shadowDx="2"
+            android:shadowDy="5"
+            android:shadowRadius="50"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/ic_logo_svgrepo_com" />
+
+        <TextView
+            android:id="@+id/idchange"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_marginBottom="20dp"
+            android:fontFamily="@font/montserrat_subrayada_bold"
+            android:gravity="center"
+            android:rotation="270"
+            android:shadowColor="#000"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="50"
+            android:text="Изменение"
+            android:textColor="@color/white"
+            android:textSize="25dp"
+            app:layout_constraintBottom_toTopOf="@+id/idAdd"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/idAdd"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_marginBottom="35dp"
+            android:fontFamily="@font/montserrat_subrayada_bold"
+            android:gravity="center"
+            android:rotation="270"
+            android:shadowColor="#000"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="50"
+            android:text="Добавление"
+            android:textColor="@color/white"
+            android:textSize="25dp"
+            app:layout_constraintBottom_toTopOf="@+id/idMain"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/idMain"
+            android:layout_width="100dp"
+            android:layout_height="145dp"
+            android:layout_marginBottom="30dp"
+
+            android:fontFamily="@font/montserrat_subrayada_bold"
+            android:gravity="center"
+            android:onClick="onClick2"
+            android:rotation="270"
+            android:shadowColor="#000"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="50"
+            android:text="Главная"
+            android:textColor="@color/white"
+            android:textSize="25dp"
+            app:layout_constraintBottom_toTopOf="@+id/photoName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageView
+        android:id="@+id/nonephotoItem"
+        android:layout_width="314dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="50dp"
+        android:src="@drawable/nullphoto"
+        app:layout_constraintBottom_toTopOf="@+id/tvname"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/consLayuot"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_launcher_foreground" />
+
+    <EditText
+
+        android:id="@+id/tvname"
+        android:layout_width="0dp"
+        android:inputType="textCapWords"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        app:layout_constraintBottom_toTopOf="@+id/tvprice"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:digits="йцукенгшщзхъфывапролджэячсмитьбю1234567890"
+        app:layout_constraintStart_toEndOf="@+id/consLayuot"
+        app:layout_constraintTop_toBottomOf="@+id/nonephotoItem">
+
+
+    </EditText>
+
+    <EditText
+
+        android:id="@+id/tvprice"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="20dp"
+        android:inputType="numberDecimal"
+        app:layout_constraintBottom_toTopOf="@+id/tvweight"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/consLayuot"
+        app:layout_constraintTop_toBottomOf="@+id/tvname">
+
+
+    </EditText>
+
+    <EditText
+
+        android:id="@+id/tvweight"
+        android:layout_width="0dp"
+        android:inputType="textCapWords"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:digits="1234567890,кг"
+        app:layout_constraintBottom_toTopOf="@+id/tvnameproz"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/consLayuot"
+        app:layout_constraintTop_toBottomOf="@+id/tvprice">
+
+
+    </EditText>
+
+    <EditText
+
+        android:id="@+id/tvnameproz"
+        android:layout_width="0dp"
+        android:inputType="textCapWords"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:digits="йцукенгшщзхъфывапролджэячсмитьбю"
+        app:layout_constraintBottom_toTopOf="@+id/tvcountry"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/consLayuot"
+        app:layout_constraintTop_toBottomOf="@+id/tvweight">
+
+
+    </EditText>
+
+    <EditText
+
+        android:id="@+id/tvcountry"
+        android:layout_width="0dp"
+        android:inputType="textCapWords"
+        android:layout_height="wrap_content"
+        android:digits="йцукенгшщзхъфывапролджэячсмитьбю"
+        android:layout_marginStart="12dp"
+        app:layout_constraintBottom_toTopOf="@+id/tbButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/consLayuot"
+        app:layout_constraintTop_toBottomOf="@+id/tvnameproz">
+
+
+    </EditText>
+
+    <TableRow
+        android:id="@+id/tbOneBTN"
+        android:layout_width="333dp"
+        android:layout_height="52dp"
+
+        android:layout_marginTop="67dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/consLayuot"
+        app:layout_constraintTop_toBottomOf="@+id/tvcountry">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/buttonChange"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/btn_backgroun"
+            android:text="Добавить товар"
+            android:textColor="#ffffff" />
+    </TableRow>
+
+
+    <TableRow
+        android:id="@+id/tbButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_weight="1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.513"
+        app:layout_constraintStart_toEndOf="@+id/consLayuot"
+        app:layout_constraintTop_toBottomOf="@+id/tvcountry" />
+
+    <TextView
+        android:id="@+id/tvn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_weight="1"
+        android:text="Имя товара"
+
+        app:layout_constraintBottom_toTopOf="@+id/tvname"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/consLayuot"
+        app:layout_constraintTop_toBottomOf="@+id/nonephotoItem" />
+
+    <TextView
+        android:id="@+id/tvsell"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+
+        android:layout_weight="1"
+        android:text="Цена товара"
+        app:layout_constraintBottom_toTopOf="@+id/tvprice"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/consLayuot"
+        app:layout_constraintTop_toBottomOf="@+id/tvname" />
+
+    <TextView
+        android:id="@+id/tvw"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+
+        android:layout_marginStart="15dp"
+        android:layout_weight="1"
+        android:text="Вес товара"
+        app:layout_constraintBottom_toTopOf="@+id/tvweight"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/consLayuot"
+        app:layout_constraintTop_toBottomOf="@+id/tvprice" />
+
+
+    <TextView
+        android:id="@+id/tvbrand"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+
+        android:layout_marginStart="15dp"
+        android:layout_weight="1"
+        android:text="Бренд"
+        app:layout_constraintBottom_toTopOf="@+id/tvnameproz"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/consLayuot"
+        app:layout_constraintTop_toBottomOf="@+id/tvweight" />
+
+    <TextView
+        android:id="@+id/tvstrana"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:inputType="numberDecimal"
+        android:layout_weight="1"
+        android:text="Страна изготовитель"
+        app:layout_constraintBottom_toTopOf="@+id/tvcountry"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/consLayuot"
+        app:layout_constraintTop_toBottomOf="@+id/tvnameproz" />
+
+    <ProgressBar
+        android:id="@+id/loadingPB"
+
+        style="@style/Widget.AppCompat.ProgressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:layout_gravity="center"
+
+        app:layout_constraintBottom_toTopOf="@+id/tbOneBTN"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/consLayuot"
+        app:layout_constraintTop_toBottomOf="@+id/tvcountry" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

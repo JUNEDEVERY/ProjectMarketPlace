@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Ozon</string>
+    <string-array name="spinner">
+        <item> </item>
+        <item>По возрастанию цены</item>
+        <item>По убыванию цены</item>
+
+    </string-array>
+</resources>
