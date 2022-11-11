@@ -80,16 +80,18 @@ public class ChangeActivity extends AppCompatActivity implements View.OnClickLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_change2);
 
-        name = findViewById(R.id.tvname);
-        price = findViewById(R.id.tvprice);
-        textView = findViewById(R.id.tvn);
-        weight = findViewById(R.id.tvweight);
-        nameproz = findViewById(R.id.tvnameproz);
+        name = findViewById(R.id.etName);
+        price = findViewById(R.id.etPrice);
+        textView = findViewById(R.id.tvName);
+        weight = findViewById(R.id.etWeight);
+        nameproz = findViewById(R.id.etManufactursName);
         country = findViewById(R.id.tvcountry);
         picture = findViewById(R.id.nonephotoItem);
         buttonDel = findViewById(R.id.btnDelete);
         btndeletePicture = findViewById(R.id.buttonChange);
         buttonChange = findViewById(R.id.btnChange);
+        loadingPB = findViewById(R.id.loadingPB);
+
         buttonDel.setOnClickListener(this);
         buttonChange.setOnClickListener(this);
         picture.setOnClickListener(this);
@@ -151,10 +153,14 @@ public class ChangeActivity extends AppCompatActivity implements View.OnClickLis
                     Toast.makeText(ChangeActivity.this, "При выводе данных возникла ошибка", Toast.LENGTH_SHORT).show();
                 }
                 name.setText(response.body().getName());
+
                 price.setText(response.body().getPrice().toString());
                 weight.setText(response.body().getWeight());
                 nameproz.setText(response.body().getNameProiz());
                 country.setText(response.body().getCountryProiz());
+                nPicture = response.body().getImage();
+
+
                 if (response.body().getImage() == null) {
                     picture.setImageResource(R.drawable.nullphoto);
                     btndeletePicture.setVisibility(View.INVISIBLE);
@@ -201,7 +207,12 @@ public class ChangeActivity extends AppCompatActivity implements View.OnClickLis
         someActivityResultLauncher.launch(photoPickerIntent);
 
     }
+    public void onClickAbout(View v){
+        {
+            startActivity(new Intent(this, About.class));
+        }
 
+    }
     public void onClick3(View v) {
         startActivity(new Intent(this, Addendum.class));
     }
@@ -223,6 +234,10 @@ public class ChangeActivity extends AppCompatActivity implements View.OnClickLis
 
     private void getChangeRow(String Name, String Price, String Weight, String NameProiz, String CountryProiz, String Image) {
 
+        loadingPB.setVisibility(View.VISIBLE);
+        buttonDel.setVisibility(View.INVISIBLE);
+        btndeletePicture.setVisibility(View.INVISIBLE);
+        buttonChange.setVisibility(View.INVISIBLE);
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://ngknn.ru:5001/NGKNN/ГерасимовНА/api/")
@@ -241,6 +256,11 @@ public class ChangeActivity extends AppCompatActivity implements View.OnClickLis
                     return;
                 }
                 Toast.makeText(ChangeActivity.this, "Данные изменены", Toast.LENGTH_SHORT).show();
+
+                loadingPB.setVisibility(View.INVISIBLE);
+                buttonDel.setVisibility(View.VISIBLE);
+                btndeletePicture.setVisibility(View.VISIBLE);
+                buttonChange.setVisibility(View.VISIBLE);
             }
 
             @Override

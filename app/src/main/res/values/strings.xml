@@ -1,5 +1,34 @@
 <resources>
     <string name="app_name">Ozon</string>
+    <string name="changeName">Изменение</string>
+    <string name="addNamePage">Добавление</string>
+    <string name="nameMarket">Market</string>
+    <string name="namePlace">Place</string>
+    <string name="nameMain">Главная</string>
+    <string name="nameSales">Sales</string>
+    <string name="changeName2">Изменение</string>
+    <string name="about">Прочее</string>
+    <string name="nameCountryManufacturer">Страна изготовитель</string>
+    <string name="tvName">Бренд</string>
+    <string name="we">Мы в социальных сетях</string>
+    <string name="todoName">TODO</string>
+    <string name="tvWeight">Вес товара</string>
+    <string name="tvPriceObject">Цена товара</string>
+    <string name="tvNameProduct">Имя товара</string>
+    <string name="tv">Имя товара</string>
+    <string name="btnChange">Изменить</string>
+    <string name="btnDeletePhoto">Удалить фото</string>
+    <string name="btnDeleteRow">Удалить запись</string>
+    <string name="tvMain">Главная</string>
+    <string name="tvADD">Добавление</string>
+    <string name="tvSales">Sales</string>
+    <string name="tvSale">Sales</string>
+    <string name="tvChange">Изменение</string>
+    <string name="name">Наименование</string>
+    <string name="tvinfo"><b> Дорогой друг! </b>\n\n
+    Спасибо, что зашел в наше приложение.\n Мы ценим каждого пользователя\n\n
+    Если тебя что-то не устроило, пожалуйста, напиши нам на электронную почту: arkashadasha23@gmail.com\n\n
+    Мы с большим удовольствием отреагируем на твои пожелания, недовольства и требования!</string>
     <string-array name="spinner">
         <item> </item>
         <item>По возрастанию цены</item>

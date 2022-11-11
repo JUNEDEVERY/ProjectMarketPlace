@@ -33,6 +33,9 @@ public class MainActivity extends AppCompatActivity {
 
     public static int keyID;
 
+    public void clickAbout(View v){
+        startActivity(new Intent(MainActivity.this, About.class));
+    }
 
     private List<Mask> listProduct = new ArrayList<>();
     @Override
@@ -41,11 +44,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         loadingPB = findViewById(R.id.loadingPB);
 
-
         /*
         Для того чтобы заполнить ListView  нам необходимо создать адптер. Адаптер используется для связи данных (массивы, базы данных)
         со списком (ListView)
         */
+        loadingPB.setVisibility(View.VISIBLE);
         ListView ivProducts = findViewById(R.id.ListProduct);//Находим лист в который будем класть наши объекты
         pAdapter = new AdapterMask(MainActivity.this, listProduct); //Создаем объект нашего адаптера
         ivProducts.setAdapter(pAdapter); //Cвязывает подготовленный список с адаптером
@@ -54,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                loadingPB.setVisibility(View.VISIBLE);
+                loadingPB.setVisibility(View.INVISIBLE);
                 keyID = (int) id;
                 Go();
             }
@@ -62,8 +65,9 @@ public class MainActivity extends AppCompatActivity {
         new GetProducts().execute(); //Подключение к нашей API в отдельном потоке
 
 
+
     }
-    public void onClick3(View v) {
+    public void onGoTOTheADDPage(View v) {
         startActivity(new Intent(this, Addendum.class));
     }
     private class GetProducts extends AsyncTask<Void, Void, String> {
@@ -88,15 +92,17 @@ public class MainActivity extends AppCompatActivity {
                 }
                 return result.toString();
 
+
             } catch (Exception exception) {
                 return null;
             }
-        }
 
+        }
 
         @Override
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
+            loadingPB.setVisibility(View.VISIBLE);
             try
             {
                 JSONArray tempArray = new JSONArray(s);//преоброзование строки в json массив
@@ -129,7 +135,6 @@ public class MainActivity extends AppCompatActivity {
 
     public void Go()
     {
-
         startActivity(new Intent(this, ChangeActivity.class));
     }
 }

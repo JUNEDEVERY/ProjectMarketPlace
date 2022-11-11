@@ -5,7 +5,7 @@
     android:id="@+id/idSearch"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".About">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/consLayuot"
@@ -26,7 +26,6 @@
             android:layout_marginBottom="20dp"
             android:fontFamily="@font/montserrat_subrayada_bold"
             android:gravity="center"
-            android:onClick="clickAbout"
             android:rotation="270"
             android:shadowColor="#000"
             android:shadowDx="0"
@@ -63,7 +62,7 @@
             android:layout_marginBottom="35dp"
             android:fontFamily="@font/montserrat_subrayada_bold"
             android:gravity="center"
-            android:onClick="onGoTOTheADDPage"
+            android:onClick="onClickADD"
             android:rotation="270"
             android:shadowColor="#000"
             android:shadowDx="0"
@@ -84,9 +83,10 @@
 
             android:fontFamily="@font/montserrat_subrayada_bold"
             android:gravity="center"
+            android:onClick="onclickMain"
             android:rotation="270"
-            android:shadowColor="#000"
 
+            android:shadowColor="#000"
             android:shadowDx="0"
             android:shadowDy="0"
             android:shadowRadius="50"
@@ -128,36 +128,71 @@
         app:layout_constraintStart_toEndOf="@+id/textView8"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ListView
-        android:id="@+id/ListProduct"
-        android:layout_width="333dp"
-        android:layout_height="515dp"
-        android:layout_marginStart="1dp"
-
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/consLayuot" />
-
-    <ProgressBar
-        android:id="@+id/loadingPB"
-        style="?android:attr/progressBarStyle"
+    <TextView
+        android:id="@+id/tvWe"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="-30dp"
-        android:visibility="invisible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/ListProduct"
-        app:layout_constraintTop_toBottomOf="@+id/ListProduct" />
-
-    <Spinner
-        android:id="@+id/spinner"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:entries="@array/spinner"
-        android:minHeight="48dp"
-        app:layout_constraintBottom_toTopOf="@+id/ListProduct"
+        android:layout_marginStart="80dp"
+        android:layout_marginEnd="80dp"
+        android:layout_marginBottom="15dp"
+        android:fontFamily="@font/montserrat_subrayada_bold"
+        android:text="@string/we"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@+id/imageTG"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/consLayuot" />
+
+    <ImageView
+        android:id="@+id/imageVK"
+        android:layout_width="58dp"
+        android:layout_height="62dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginBottom="3dp"
+        android:onClick="onClickVK"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imageTG"
+        app:layout_constraintStart_toEndOf="@+id/consLayuot"
+        app:srcCompat="@drawable/vk" />
+
+    <ImageView
+        android:id="@+id/imageTG"
+        android:layout_width="68dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="24dp"
+        android:onClick="onClicktTG"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageVK"
+        app:srcCompat="@drawable/telegramm" />
+
+    <ImageView
+        android:id="@+id/imageINST"
+        android:layout_width="49dp"
+        android:layout_height="57dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="5dp"
+        android:onClick="onClickInsta"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/imageTG"
+        app:srcCompat="@drawable/insta" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="336dp"
+        android:layout_height="552dp"
+        android:fontFamily="@font/alfa_slab_one"
+        android:gravity="center"
+        android:text="@string/tvinfo"
+        android:textSize="20sp"
+        app:flow_horizontalAlign="center"
+        app:layout_constraintBottom_toTopOf="@+id/tvWe"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.384"
+        app:layout_constraintStart_toEndOf="@+id/consLayuot"
+        app:layout_constraintTop_toBottomOf="@+id/textView8"
+        app:layout_constraintVertical_bias="1.0" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

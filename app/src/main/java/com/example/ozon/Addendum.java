@@ -1,13 +1,9 @@
 package com.example.ozon;
 
-import androidx.activity.result.ActivityResult;
-import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -16,7 +12,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.MediaStore;
-import android.util.Base64;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -26,7 +21,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.ByteArrayOutputStream;
-import java.io.IOException;
 import java.io.InputStream;
 
 import retrofit2.Call;
@@ -57,11 +51,11 @@ public class Addendum extends AppCompatActivity implements View.OnClickListener 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_addendum);
 
-        name = findViewById(R.id.tvname);
-        price = findViewById(R.id.tvprice);
-        textView = findViewById(R.id.tvn);
-        weight = findViewById(R.id.tvweight);
-        nameproz = findViewById(R.id.tvnameproz);
+        name = findViewById(R.id.etName);
+        price = findViewById(R.id.etPrice);
+        textView = findViewById(R.id.tvName);
+        weight = findViewById(R.id.etWeight);
+        nameproz = findViewById(R.id.etManufactursName);
         country = findViewById(R.id.tvcountry);
         picture = findViewById(R.id.nonephotoItem);
         loadingPB = findViewById(R.id.loadingPB);
@@ -176,7 +170,12 @@ public class Addendum extends AppCompatActivity implements View.OnClickListener 
         });
     }
 
+    public void onClickAbout(View v){
+        {
+            startActivity(new Intent(this, About.class));
+        }
 
+    }
     public static String encodeImage(Bitmap bitmap) {
         int prevW = 500;
         int prevH = bitmap.getHeight() * prevW / bitmap.getWidth();

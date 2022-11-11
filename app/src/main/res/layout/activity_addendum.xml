@@ -23,7 +23,7 @@
             android:layout_width="62dp"
             android:layout_height="49dp"
             android:layout_marginBottom="16dp"
-            android:contentDescription="Sales"
+            android:contentDescription="@string/tvSale"
             android:shadowColor="#000"
             android:shadowDx="2"
             android:shadowDy="5"
@@ -31,7 +31,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:srcCompat="@drawable/ic_logo_svgrepo_com" />
+            app:srcCompat="@drawable/ic_logo_svgrepo_com"
+            tools:ignore="ImageContrastCheck" />
 
         <TextView
             android:id="@+id/idchange"
@@ -40,14 +41,15 @@
             android:layout_marginBottom="20dp"
             android:fontFamily="@font/montserrat_subrayada_bold"
             android:gravity="center"
+            android:onClick="onClickAbout"
             android:rotation="270"
             android:shadowColor="#000"
             android:shadowDx="0"
             android:shadowDy="0"
             android:shadowRadius="50"
-            android:text="Изменение"
+            android:text="@string/about"
             android:textColor="@color/white"
-            android:textSize="25dp"
+            android:textSize="25sp"
             app:layout_constraintBottom_toTopOf="@+id/idAdd"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -65,7 +67,7 @@
             android:shadowDx="0"
             android:shadowDy="0"
             android:shadowRadius="50"
-            android:text="Добавление"
+            android:text="@string/addNamePage"
             android:textColor="@color/white"
             android:textSize="25dp"
             app:layout_constraintBottom_toTopOf="@+id/idMain"
@@ -86,7 +88,7 @@
             android:shadowDx="0"
             android:shadowDy="0"
             android:shadowRadius="50"
-            android:text="Главная"
+            android:text="@string/tvMain"
             android:textColor="@color/white"
             android:textSize="25dp"
             app:layout_constraintBottom_toTopOf="@+id/photoName"
@@ -102,22 +104,26 @@
         android:layout_marginTop="20dp"
         android:layout_marginBottom="50dp"
         android:src="@drawable/nullphoto"
-        app:layout_constraintBottom_toTopOf="@+id/tvname"
+        app:layout_constraintBottom_toTopOf="@+id/etName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/consLayuot"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_launcher_foreground" />
+        app:srcCompat="@drawable/ic_launcher_foreground"
+        tools:ignore="ImageContrastCheck" />
 
     <EditText
 
-        android:id="@+id/tvname"
+        android:id="@+id/etName"
         android:layout_width="0dp"
-        android:inputType="textCapWords"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
-        app:layout_constraintBottom_toTopOf="@+id/tvprice"
+        android:digits="ЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮйцукенгшщзхъфывапролджэячсмитьбю1234567890 "
+        android:hint="@string/tvNameProduct"
+        android:inputType="textCapWords"
+        android:minHeight="48dp"
+        android:textColorHint="#757575"
+        app:layout_constraintBottom_toTopOf="@+id/etPrice"
         app:layout_constraintEnd_toEndOf="parent"
-        android:digits="йцукенгшщзхъфывапролджэячсмитьбю1234567890"
         app:layout_constraintStart_toEndOf="@+id/consLayuot"
         app:layout_constraintTop_toBottomOf="@+id/nonephotoItem">
 
@@ -126,51 +132,62 @@
 
     <EditText
 
-        android:id="@+id/tvprice"
+        android:id="@+id/etPrice"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
         android:layout_marginTop="20dp"
-        android:inputType="numberDecimal"
-        app:layout_constraintBottom_toTopOf="@+id/tvweight"
+        android:hint="@string/tvPriceObject"
+        android:inputType="textCapWords"
+        android:minHeight="48dp"
+        android:textColorHint="#757575"
+        app:layout_constraintBottom_toTopOf="@+id/etWeight"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/consLayuot"
-        app:layout_constraintTop_toBottomOf="@+id/tvname">
+        app:layout_constraintTop_toBottomOf="@+id/etName">
 
 
     </EditText>
 
     <EditText
 
-        android:id="@+id/tvweight"
+        android:id="@+id/etWeight"
         android:layout_width="0dp"
-        android:inputType="textCapWords"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
-        android:digits="1234567890,кг"
-        app:layout_constraintBottom_toTopOf="@+id/tvnameproz"
+        android:digits="1234567890,кглмл"
+        android:hint="@string/tvWeight"
+        android:inputType="textCapWords"
+        android:minHeight="48dp"
+        android:textColorHint="#757575"
+        app:layout_constraintBottom_toTopOf="@+id/etManufactursName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/consLayuot"
-        app:layout_constraintTop_toBottomOf="@+id/tvprice">
+        app:layout_constraintTop_toBottomOf="@+id/etPrice">
 
 
     </EditText>
 
     <EditText
 
-        android:id="@+id/tvnameproz"
+        android:id="@+id/etManufactursName"
         android:layout_width="0dp"
-        android:inputType="textCapWords"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
-        android:digits="йцукенгшщзхъфывапролджэячсмитьбю"
+        android:digits="ЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮйцукенгшщзхъфывапролджэячсмитьбю "
+        android:hint="@string/tvName"
+        android:inputType="textCapWords"
+        android:minHeight="48dp"
+        android:textColorHint="#757575"
         app:layout_constraintBottom_toTopOf="@+id/tvcountry"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/consLayuot"
-        app:layout_constraintTop_toBottomOf="@+id/tvweight">
+        app:layout_constraintTop_toBottomOf="@+id/etWeight"
+        tools:ignore="DuplicateSpeakableTextCheck"
+        android:autofillHints="">
 
 
     </EditText>
@@ -179,15 +196,19 @@
 
         android:id="@+id/tvcountry"
         android:layout_width="0dp"
-        android:inputType="textCapWords"
         android:layout_height="wrap_content"
-        android:digits="йцукенгшщзхъфывапролджэячсмитьбю"
         android:layout_marginStart="12dp"
+        android:digits="ЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮйцукенгшщзхъфывапролджэячсмитьбю "
+        android:hint="@string/nameCountryManufacturer"
+        android:inputType="textCapWords"
+        android:minHeight="48dp"
+        android:textColorHint="#757575"
         app:layout_constraintBottom_toTopOf="@+id/tbButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/consLayuot"
-        app:layout_constraintTop_toBottomOf="@+id/tvnameproz">
+        app:layout_constraintTop_toBottomOf="@+id/etManufactursName"
+        tools:ignore="DuplicateSpeakableTextCheck">
 
 
     </EditText>
@@ -198,6 +219,7 @@
         android:layout_height="52dp"
 
         android:layout_marginTop="67dp"
+        android:layout_marginBottom="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/consLayuot"
@@ -210,7 +232,7 @@
             android:layout_weight="1"
             android:background="@drawable/btn_backgroun"
             android:text="Добавить товар"
-            android:textColor="#ffffff" />
+            android:textColor="@color/white" />
     </TableRow>
 
 
@@ -226,80 +248,84 @@
         app:layout_constraintTop_toBottomOf="@+id/tvcountry" />
 
     <TextView
-        android:id="@+id/tvn"
+        android:id="@+id/tvName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
+        android:layout_marginStart="15dp"
         android:layout_weight="1"
+        android:textColorHint="#757575"
         android:text="Имя товара"
-
-        app:layout_constraintBottom_toTopOf="@+id/tvname"
+        app:layout_constraintBottom_toTopOf="@+id/etName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/consLayuot"
         app:layout_constraintTop_toBottomOf="@+id/nonephotoItem" />
 
     <TextView
-        android:id="@+id/tvsell"
+        android:id="@+id/tvPrice"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
-
+        android:textColorHint="#757575"
         android:layout_weight="1"
         android:text="Цена товара"
-        app:layout_constraintBottom_toTopOf="@+id/tvprice"
+        app:layout_constraintBottom_toTopOf="@+id/etPrice"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/consLayuot"
-        app:layout_constraintTop_toBottomOf="@+id/tvname" />
+        app:layout_constraintTop_toBottomOf="@+id/etName" />
 
     <TextView
-        android:id="@+id/tvw"
+        android:id="@+id/tvWeight"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-
+        android:textColorHint="#757575"
         android:layout_marginStart="15dp"
         android:layout_weight="1"
         android:text="Вес товара"
-        app:layout_constraintBottom_toTopOf="@+id/tvweight"
+        app:layout_constraintBottom_toTopOf="@+id/etWeight"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/consLayuot"
-        app:layout_constraintTop_toBottomOf="@+id/tvprice" />
+        app:layout_constraintTop_toBottomOf="@+id/etPrice" />
 
 
     <TextView
-        android:id="@+id/tvbrand"
+        android:id="@+id/tvBrand"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-
+        android:textColorHint="#757575"
         android:layout_marginStart="15dp"
         android:layout_weight="1"
         android:text="Бренд"
-        app:layout_constraintBottom_toTopOf="@+id/tvnameproz"
+        app:layout_constraintBottom_toTopOf="@+id/etManufactursName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/consLayuot"
-        app:layout_constraintTop_toBottomOf="@+id/tvweight" />
+        app:layout_constraintTop_toBottomOf="@+id/etWeight" />
 
     <TextView
         android:id="@+id/tvstrana"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="310dp"
+        android:layout_height="26dp"
         android:layout_marginStart="15dp"
-        android:inputType="numberDecimal"
         android:layout_weight="1"
-        android:text="Страна изготовитель"
+        android:inputType="numberDecimal"
+        android:minHeight="48dp"
+
+        android:text="@string/nameCountryManufacturer"
+        android:textColor="#757575"
+        android:textColorHint="#757575"
         app:layout_constraintBottom_toTopOf="@+id/tvcountry"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/consLayuot"
-        app:layout_constraintTop_toBottomOf="@+id/tvnameproz" />
+        app:layout_constraintTop_toBottomOf="@+id/etManufactursName"
+        app:layout_constraintVertical_bias="0.0" />
 
     <ProgressBar
         android:id="@+id/loadingPB"
-
         style="@style/Widget.AppCompat.ProgressBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="invisible"
         android:layout_gravity="center"
-
         app:layout_constraintBottom_toTopOf="@+id/tbOneBTN"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/consLayuot"
