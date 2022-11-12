@@ -253,13 +253,13 @@ public class Addendum extends AppCompatActivity implements View.OnClickListener 
                         return;
                     }
                     Toast.makeText(Addendum.this, "Товар успешно добавлен", Toast.LENGTH_SHORT).show();
-
+                    loadingPB.setVisibility(View.GONE);
                     name.setText("");
                     weight.setText("");
                     price.setText("");
                     nameproz.setText("");
                     country.setText("");
-                    loadingPB.setVisibility(View.INVISIBLE);
+
 
 
                 }

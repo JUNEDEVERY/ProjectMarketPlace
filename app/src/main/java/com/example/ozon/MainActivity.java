@@ -156,10 +156,10 @@ public class MainActivity extends AppCompatActivity {
                             productJson.getString("picture")
 
                     );
-                    loadingPB.setVisibility(View.INVISIBLE);
+
                     listProduct.add(tempProduct);
                     pAdapter.notifyDataSetInvalidated();
-
+                    loadingPB.setVisibility(View.INVISIBLE);
                 }
             } catch (Exception ignored) {
 

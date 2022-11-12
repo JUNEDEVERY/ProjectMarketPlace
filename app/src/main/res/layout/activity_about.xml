@@ -152,7 +152,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/imageTG"
         app:layout_constraintStart_toEndOf="@+id/consLayuot"
-        app:srcCompat="@drawable/vk" />
+        app:srcCompat="@drawable/vk"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <ImageView
         android:id="@+id/imageTG"
@@ -162,7 +163,8 @@
         android:onClick="onClicktTG"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageVK"
-        app:srcCompat="@drawable/telegramm" />
+        app:srcCompat="@drawable/telegramm"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <ImageView
         android:id="@+id/imageINST"
@@ -176,7 +178,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/imageTG"
-        app:srcCompat="@drawable/insta" />
+        app:srcCompat="@drawable/insta"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <TextView
         android:id="@+id/textView2"

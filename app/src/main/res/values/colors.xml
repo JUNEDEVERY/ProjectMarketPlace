@@ -9,4 +9,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="start_color">#36d1dc</color>
     <color name="end_color">#5b86e5</color>
+    <color name="spinner_color">#80e7ee</color>
 </resources>

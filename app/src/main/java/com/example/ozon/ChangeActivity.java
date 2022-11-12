@@ -84,7 +84,7 @@ public class ChangeActivity extends AppCompatActivity implements View.OnClickLis
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_change);
+        setContentView(R.layout.activity_change2);
 
         name = findViewById(R.id.etName);
         price = findViewById(R.id.etPrice);
@@ -243,6 +243,7 @@ public class ChangeActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     private void showAll() {
+        loadingPB.setVisibility(View.VISIBLE);
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://ngknn.ru:5001/ngknn/герасимовна/api/")
                 .addConverterFactory(GsonConverterFactory.create())
@@ -264,7 +265,7 @@ public class ChangeActivity extends AppCompatActivity implements View.OnClickLis
                 nameproz.setText(response.body().getNameProiz());
                 country.setText(response.body().getCountryProiz());
                 nPicture = response.body().getImage();
-
+                loadingPB.setVisibility(View.INVISIBLE);
 
                 if (response.body().getImage() == null) {
                     picture.setImageResource(R.drawable.nullphoto);
