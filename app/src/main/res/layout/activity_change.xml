@@ -102,6 +102,7 @@
         android:layout_height="200dp"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="50dp"
+        android:contentDescription="@string/todoName"
         android:onClick="nonePicture"
         android:src="@drawable/nullphoto"
         app:layout_constraintBottom_toTopOf="@+id/etName"
@@ -109,8 +110,7 @@
         app:layout_constraintStart_toEndOf="@+id/consLayuot"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_launcher_foreground"
-        tools:ignore="SpeakableTextPresentCheck"
-        android:contentDescription="@string/todoName" />
+        tools:ignore="SpeakableTextPresentCheck,ImageContrastCheck" />
 
     <EditText
 
@@ -198,8 +198,9 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
-        android:digits="ЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮйцукенгшщзхъфывапролджэячсмитьбю "
+        android:autofillHints=""
 
+        android:digits="ЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮйцукенгшщзхъфывапролджэячсмитьбю "
         android:inputType="textCapWords"
         android:minHeight="48dp"
         app:layout_constraintBottom_toTopOf="@+id/tbButton"
@@ -207,8 +208,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/consLayuot"
         app:layout_constraintTop_toBottomOf="@+id/etManufactursName"
-        tools:ignore="SpeakableTextPresentCheck"
-        android:autofillHints="">
+        tools:ignore="SpeakableTextPresentCheck">
 
 
     </EditText>
@@ -326,18 +326,21 @@
 
     <TextView
         android:id="@+id/tvstrana"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="324dp"
+        android:layout_height="24dp"
         android:layout_marginStart="15dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="50dp"
         android:layout_weight="1"
         android:inputType="numberDecimal"
         android:minHeight="48dp"
         android:text="@string/nameCountryManufacturer"
         app:layout_constraintBottom_toTopOf="@+id/tvcountry"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.75"
         app:layout_constraintStart_toEndOf="@+id/consLayuot"
-        app:layout_constraintTop_toBottomOf="@+id/etManufactursName" />
+        app:layout_constraintTop_toBottomOf="@+id/etManufactursName"
+        app:layout_constraintVertical_bias="0.833"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <ProgressBar
         android:id="@+id/loadingPB"

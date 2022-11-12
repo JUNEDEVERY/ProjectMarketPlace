@@ -12,6 +12,8 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.MediaStore;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -37,13 +39,17 @@ public class Addendum extends AppCompatActivity implements View.OnClickListener 
     EditText weight;
     EditText nameproz;
     TextView textView;
+    TextView textView2;
+    TextView textView3;
+    TextView textView4;
+    TextView textView5;
+
     EditText country;
 
     ProgressBar loadingPB;
 
     String nPicture;
     ImageView picture;
-
 
 
     @Override
@@ -54,6 +60,10 @@ public class Addendum extends AppCompatActivity implements View.OnClickListener 
         name = findViewById(R.id.etName);
         price = findViewById(R.id.etPrice);
         textView = findViewById(R.id.tvName);
+        textView2 = findViewById(R.id.tvPrice);
+        textView3 = findViewById(R.id.tvWeight);
+        textView4 = findViewById(R.id.tvBrand);
+        textView5 = findViewById(R.id.tvstrana);
         weight = findViewById(R.id.etWeight);
         nameproz = findViewById(R.id.etManufactursName);
         country = findViewById(R.id.tvcountry);
@@ -64,11 +74,103 @@ public class Addendum extends AppCompatActivity implements View.OnClickListener 
         buttonChange.setOnClickListener(this);
         picture.setOnClickListener(this);
 
-        if (name.getText().toString().equals("")) {
-            textView.setVisibility(View.INVISIBLE);
-        } else if (!name.getText().toString().equals("")) {
-            textView.setVisibility(View.VISIBLE);
-        }
+        name.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                if (name.getText().toString().isEmpty()) {
+                    textView.setVisibility(View.INVISIBLE);
+                } else if (!name.getText().toString().isEmpty()) {
+                    textView.setVisibility(View.VISIBLE);
+                }
+            }
+            @Override
+            public void afterTextChanged(Editable editable) {
+            }
+        });
+
+        price.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                if (price.getText().toString().isEmpty()) {
+                    textView2.setVisibility(View.INVISIBLE);
+                } else if (!price.getText().toString().isEmpty()) {
+                    textView2.setVisibility(View.VISIBLE);
+                }
+            }
+            @Override
+            public void afterTextChanged(Editable editable) {
+            }
+        });
+
+        weight.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                if (weight.getText().toString().isEmpty()) {
+                    textView3.setVisibility(View.INVISIBLE);
+                } else if (!weight.getText().toString().isEmpty()) {
+                    textView3.setVisibility(View.VISIBLE);
+                }
+            }
+            @Override
+            public void afterTextChanged(Editable editable) {
+            }
+        });
+
+        nameproz.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                if (nameproz.getText().toString().isEmpty()) {
+                    textView4.setVisibility(View.INVISIBLE);
+                } else if (!nameproz.getText().toString().isEmpty()) {
+                    textView4.setVisibility(View.VISIBLE);
+                }
+            }
+            @Override
+            public void afterTextChanged(Editable editable) {
+            }
+        });
+
+
+
+
+        country.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                if (country.getText().toString().isEmpty()) {
+                    textView5.setVisibility(View.INVISIBLE);
+                } else if (!country.getText().toString().isEmpty()) {
+                    textView5.setVisibility(View.VISIBLE);
+                }
+            }
+            @Override
+            public void afterTextChanged(Editable editable) {
+            }
+        });
 
         if (name.getText().toString().equals("")) {
             name.setHint("Имя товара");
@@ -102,6 +204,7 @@ public class Addendum extends AppCompatActivity implements View.OnClickListener 
 
 
     }
+
     public final ActivityResultLauncher<Intent> pickImg = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(), result -> {
                 if (result.getResultCode() == RESULT_OK) {
@@ -128,54 +231,60 @@ public class Addendum extends AppCompatActivity implements View.OnClickListener 
     }
 
 
-
-
     private void postCreate(String Name, String Price, String Weight, String NameProiz, String CountryProiz, String Image) {
 
         loadingPB.setVisibility(View.VISIBLE);
 
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://ngknn.ru:5001/NGKNN/ГерасимовНА/api/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-        RetrofitAPI retrofitAPI = retrofit.create(RetrofitAPI.class);
 
-        DataModal modal = new DataModal(Name, Float.parseFloat(Price), Weight, NameProiz, CountryProiz, Image);
-        Call<DataModal> call = retrofitAPI.createPost(modal);
-        call.enqueue(new Callback<DataModal>() {
-            @Override
-            public void onResponse(Call<DataModal> call, Response<DataModal> response) {
+        try {
+            Retrofit retrofit = new Retrofit.Builder()
+                    .baseUrl("https://ngknn.ru:5001/NGKNN/ГерасимовНА/api/")
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
+            RetrofitAPI retrofitAPI = retrofit.create(RetrofitAPI.class);
+            DataModal modal = new DataModal(Name, Float.parseFloat(Price), Weight, NameProiz, CountryProiz, Image);
+            Call<DataModal> call = retrofitAPI.createPost(modal);
+            call.enqueue(new Callback<DataModal>() {
+                @Override
+                public void onResponse(Call<DataModal> call, Response<DataModal> response) {
 
-                if (!response.isSuccessful()) {
-                    Toast.makeText(Addendum.this, "Во время добавления что-то пошло не по плану. Мы уже разбираемся", Toast.LENGTH_SHORT).show();
-                    return;
+                    if (!response.isSuccessful()) {
+                        Toast.makeText(Addendum.this, "Во время добавления что-то пошло не по плану. Мы уже разбираемся", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+                    Toast.makeText(Addendum.this, "Товар успешно добавлен", Toast.LENGTH_SHORT).show();
+
+                    name.setText("");
+                    weight.setText("");
+                    price.setText("");
+                    nameproz.setText("");
+                    country.setText("");
+                    loadingPB.setVisibility(View.INVISIBLE);
+
+
                 }
-                Toast.makeText(Addendum.this, "Товар успешно добавлен", Toast.LENGTH_SHORT).show();
 
-                name.setText("");
-                weight.setText("");
-                price.setText("");
-                nameproz.setText("");
-                country.setText("");
-                loadingPB.setVisibility(View.INVISIBLE);
-
-            }
-
-            @Override
-            public void onFailure(Call<DataModal> call, Throwable t) {
-                Toast.makeText(Addendum.this, "Еще секундочку....: " + t.getMessage(), Toast.LENGTH_LONG).show();
+                @Override
+                public void onFailure(Call<DataModal> call, Throwable t) {
+                    Toast.makeText(Addendum.this, "Еще секундочку....: " + t.getMessage(), Toast.LENGTH_LONG).show();
 
 
-            }
-        });
+                }
+            });
+        }
+        catch (Exception e) {
+            Toast.makeText(Addendum.this, "Что-то пошло не так в процессе добавления: " + e.getMessage(), Toast.LENGTH_LONG).show();
+        }
+
     }
 
-    public void onClickAbout(View v){
+    public void onClickAbout(View v) {
         {
             startActivity(new Intent(this, About.class));
         }
 
     }
+
     public static String encodeImage(Bitmap bitmap) {
         int prevW = 500;
         int prevH = bitmap.getHeight() * prevW / bitmap.getWidth();
@@ -189,6 +298,7 @@ public class Addendum extends AppCompatActivity implements View.OnClickListener 
         }
         return "";
     }
+
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -214,7 +324,7 @@ public class Addendum extends AppCompatActivity implements View.OnClickListener 
 
             case R.id.nonephotoItem:
 
-                Intent intent = new Intent(Intent.ACTION_PICK,  MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                 intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
                 pickImg.launch(intent);
                 break;

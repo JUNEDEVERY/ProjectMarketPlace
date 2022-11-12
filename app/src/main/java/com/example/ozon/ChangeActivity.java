@@ -16,6 +16,8 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.MediaStore;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Base64;
 import android.view.View;
 import android.widget.Button;
@@ -43,6 +45,10 @@ public class ChangeActivity extends AppCompatActivity implements View.OnClickLis
     EditText weight;
     EditText nameproz;
     TextView textView;
+    TextView textView2;
+    TextView textView3;
+    TextView textView4;
+    TextView textView5;
     EditText country;
     Button buttonDel;
     Button buttonChange;
@@ -83,6 +89,10 @@ public class ChangeActivity extends AppCompatActivity implements View.OnClickLis
         name = findViewById(R.id.etName);
         price = findViewById(R.id.etPrice);
         textView = findViewById(R.id.tvName);
+        textView2 = findViewById(R.id.tvPrice);
+        textView3 = findViewById(R.id.tvWeight);
+        textView4 = findViewById(R.id.tvBrand);
+        textView5 = findViewById(R.id.tvstrana);
         weight = findViewById(R.id.etWeight);
         nameproz = findViewById(R.id.etManufactursName);
         country = findViewById(R.id.tvcountry);
@@ -96,11 +106,106 @@ public class ChangeActivity extends AppCompatActivity implements View.OnClickLis
         buttonChange.setOnClickListener(this);
         picture.setOnClickListener(this);
 
-        if (name.getText().toString().equals("")) {
-            textView.setVisibility(View.INVISIBLE);
-        } else if (!name.getText().toString().equals("")) {
-            textView.setVisibility(View.VISIBLE);
-        }
+
+
+        name.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                if (name.getText().toString().isEmpty()) {
+                    textView.setVisibility(View.INVISIBLE);
+                } else if (!name.getText().toString().isEmpty()) {
+                    textView.setVisibility(View.VISIBLE);
+                }
+            }
+            @Override
+            public void afterTextChanged(Editable editable) {
+            }
+        });
+
+        price.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                if (price.getText().toString().isEmpty()) {
+                    textView2.setVisibility(View.INVISIBLE);
+                } else if (!price.getText().toString().isEmpty()) {
+                    textView2.setVisibility(View.VISIBLE);
+                }
+            }
+            @Override
+            public void afterTextChanged(Editable editable) {
+            }
+        });
+
+        weight.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                if (weight.getText().toString().isEmpty()) {
+                    textView3.setVisibility(View.INVISIBLE);
+                } else if (!weight.getText().toString().isEmpty()) {
+                    textView3.setVisibility(View.VISIBLE);
+                }
+            }
+            @Override
+            public void afterTextChanged(Editable editable) {
+            }
+        });
+
+        nameproz.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                if (nameproz.getText().toString().isEmpty()) {
+                    textView4.setVisibility(View.INVISIBLE);
+                } else if (!nameproz.getText().toString().isEmpty()) {
+                    textView4.setVisibility(View.VISIBLE);
+                }
+            }
+            @Override
+            public void afterTextChanged(Editable editable) {
+            }
+        });
+
+
+
+
+        country.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                if (country.getText().toString().isEmpty()) {
+                    textView5.setVisibility(View.INVISIBLE);
+                } else if (!country.getText().toString().isEmpty()) {
+                    textView5.setVisibility(View.VISIBLE);
+                }
+            }
+            @Override
+            public void afterTextChanged(Editable editable) {
+            }
+        });
+
 
         if (name.getText().toString().equals("")) {
             name.setHint("Имя товара");
