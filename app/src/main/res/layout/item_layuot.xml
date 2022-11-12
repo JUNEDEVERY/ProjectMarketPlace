@@ -6,6 +6,19 @@
     android:layout_height="match_parent">
 
     <TextView
+        android:id="@+id/txtprice"
+        android:layout_width="99dp"
+        android:layout_height="20dp"
+
+        android:layout_weight="1"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="15dp"
+        tools:layout_editor_absoluteX="209dp"
+        tools:layout_editor_absoluteY="228dp" />
+
+    <TextView
         android:id="@+id/txtCountry"
         android:layout_width="145dp"
         android:layout_height="20dp"
@@ -15,21 +28,8 @@
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="15dp"
-        tools:layout_editor_absoluteX="42dp"
-        tools:layout_editor_absoluteY="28dp" />
-
-    <TextView
-        android:id="@+id/txtnameProiz"
-        android:layout_width="154dp"
-        android:layout_height="25dp"
-
-        android:layout_weight="1"
-        android:gravity="center"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="15dp"
-        tools:layout_editor_absoluteX="256dp"
-        tools:layout_editor_absoluteY="28dp" />
+        tools:layout_editor_absoluteX="68dp"
+        tools:layout_editor_absoluteY="284dp" />
 
     <TextView
         android:id="@+id/txtweight"
@@ -41,20 +41,21 @@
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="15dp"
-        tools:layout_editor_absoluteY="48dp" />
+        tools:layout_editor_absoluteX="68dp"
+        tools:layout_editor_absoluteY="304dp" />
 
     <TextView
-        android:id="@+id/txtprice"
-        android:layout_width="99dp"
-        android:layout_height="20dp"
+        android:id="@+id/txtnameProiz"
+        android:layout_width="154dp"
+        android:layout_height="25dp"
 
         android:layout_weight="1"
         android:gravity="center"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="15dp"
-        tools:layout_editor_absoluteX="222dp"
-        tools:layout_editor_absoluteY="48dp" />
+        tools:layout_editor_absoluteX="163dp"
+        tools:layout_editor_absoluteY="427dp" />
 
     <TextView
         android:id="@+id/txtTitle"
@@ -65,7 +66,8 @@
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="15dp"
-        tools:layout_editor_absoluteX="122dp" />
+        tools:layout_editor_absoluteX="105dp"
+        tools:layout_editor_absoluteY="381dp" />
 
     <ImageView
         android:id="@+id/nonephotoItem"
@@ -75,6 +77,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_launcher_foreground" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="84dp"
+        tools:layout_editor_absoluteY="0dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

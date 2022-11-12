@@ -12,6 +12,7 @@
     <string name="tvName">Бренд</string>
     <string name="we">Мы в социальных сетях</string>
     <string name="todoName">TODO</string>
+    <string name="search">Блок поиска</string>
     <string name="tvWeight">Вес товара</string>
     <string name="tvPriceObject">Цена товара</string>
     <string name="tvNameProduct">Имя товара</string>
@@ -30,9 +31,11 @@
     Если тебя что-то не устроило, пожалуйста, напиши нам на электронную почту: arkashadasha23@gmail.com\n\n
     Мы с большим удовольствием отреагируем на твои пожелания, недовольства и требования!</string>
     <string-array name="spinner">
-        <item> </item>
+        <item>Выбор элемента сортировки</item>
         <item>По возрастанию цены</item>
         <item>По убыванию цены</item>
+        <item>По возрастанию веса</item>
+        <item>По убыванию веса</item>
 
     </string-array>
 </resources>

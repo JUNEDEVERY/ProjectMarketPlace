@@ -10,9 +10,11 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.SearchView;
+import android.widget.Spinner;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -29,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
     String Image;
     ListView listView;
     ProgressBar loadingPB;
+    EditText editTextTextPersonName;
+    Spinner idSorted;
 
 
     public static int keyID;
@@ -43,6 +47,20 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         loadingPB = findViewById(R.id.loadingPB);
+        editTextTextPersonName = findViewById(R.id.editTextTextPersonName);
+        idSorted = findViewById(R.id.spinner);
+
+            idSorted.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    new GetProducts().execute();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+
+                }
+            });
 
         /*
         Для того чтобы заполнить ListView  нам необходимо создать адптер. Адаптер используется для связи данных (массивы, базы данных)
@@ -75,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected String doInBackground(Void... voids) {
             try {
-                URL url = new URL("https://ngknn.ru:5001/NGKNN/герасимовна/api/nameofproducts/");//Строка подключения к нашей API
+                URL url = new URL("https://ngknn.ru:5001/NGKNN/герасимовна/api/nameofproducts/search?nameofproductsSearchText="+editTextTextPersonName.getText().toString()+"&field="+idSorted.getSelectedItemPosition());//Строка подключения к нашей API
                 HttpURLConnection connection = (HttpURLConnection) url.openConnection(); //вызываем нашу API
 
                 BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
@@ -105,6 +123,7 @@ public class MainActivity extends AppCompatActivity {
             loadingPB.setVisibility(View.VISIBLE);
             try
             {
+                listProduct.clear();
                 JSONArray tempArray = new JSONArray(s);//преоброзование строки в json массив
                 for (int i = 0;i<tempArray.length();i++)
                 {
