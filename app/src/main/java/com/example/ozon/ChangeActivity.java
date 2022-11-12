@@ -358,10 +358,10 @@ public class ChangeActivity extends AppCompatActivity implements View.OnClickLis
             public void onResponse(Call<DataModal> call, Response<DataModal> response) {
 
                 if (!response.isSuccessful()) {
-                    Toast.makeText(ChangeActivity.this, "При изменение данных возникла ошибка", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ChangeActivity.this, "В процессе изменения данных произошла ошибка", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                Toast.makeText(ChangeActivity.this, "Данные изменены", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ChangeActivity.this, "Данные успешно изменены", Toast.LENGTH_SHORT).show();
 
                 loadingPB.setVisibility(View.INVISIBLE);
                 buttonDel.setVisibility(View.VISIBLE);
@@ -371,7 +371,7 @@ public class ChangeActivity extends AppCompatActivity implements View.OnClickLis
 
             @Override
             public void onFailure(Call<DataModal> call, Throwable t) {
-                Toast.makeText(ChangeActivity.this, "При изменение записи возникла ошибка: " + t.getMessage(), Toast.LENGTH_LONG).show();
+                Toast.makeText(ChangeActivity.this, "При изменении записи возникла ошибка: " + t.getMessage(), Toast.LENGTH_LONG).show();
 
             }
         });
