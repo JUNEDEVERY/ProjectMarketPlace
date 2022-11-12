@@ -164,7 +164,7 @@
         android:layout_marginBottom="15dp"
         android:entries="@array/spinner"
         android:minHeight="48dp"
-      
+
         android:spinnerMode="dropdown"
         app:layout_constraintBottom_toTopOf="@+id/ListProduct"
         app:layout_constraintEnd_toEndOf="parent"

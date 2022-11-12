@@ -365,7 +365,7 @@ public class ChangeActivity extends AppCompatActivity implements View.OnClickLis
 
                 loadingPB.setVisibility(View.INVISIBLE);
                 buttonDel.setVisibility(View.VISIBLE);
-                btndeletePicture.setVisibility(View.VISIBLE);
+               // btndeletePicture.setVisibility(View.VISIBLE);
                 buttonChange.setVisibility(View.VISIBLE);
             }
 
