@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Ozon</string>
+    <string name="app_name">MarketPlace</string>
     <string name="changeName">Изменение</string>
     <string name="addNamePage">Добавление</string>
     <string name="nameMarket">Market</string>
