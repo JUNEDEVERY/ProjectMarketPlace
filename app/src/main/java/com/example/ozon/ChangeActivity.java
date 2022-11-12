@@ -78,7 +78,7 @@ public class ChangeActivity extends AppCompatActivity implements View.OnClickLis
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_change2);
+        setContentView(R.layout.activity_change);
 
         name = findViewById(R.id.etName);
         price = findViewById(R.id.etPrice);

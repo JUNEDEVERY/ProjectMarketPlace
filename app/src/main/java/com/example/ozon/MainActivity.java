@@ -37,11 +37,12 @@ public class MainActivity extends AppCompatActivity {
 
     public static int keyID;
 
-    public void clickAbout(View v){
+    public void clickAbout(View v) {
         startActivity(new Intent(MainActivity.this, About.class));
     }
 
     private List<Mask> listProduct = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,17 +51,34 @@ public class MainActivity extends AppCompatActivity {
         editTextTextPersonName = findViewById(R.id.editTextTextPersonName);
         idSorted = findViewById(R.id.spinner);
 
-            idSorted.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                @Override
-                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                    new GetProducts().execute();
-                }
+        editTextTextPersonName.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
-                @Override
-                public void onNothingSelected(AdapterView<?> adapterView) {
+            }
 
-                }
-            });
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                new GetProducts().execute();
+            }
+        });
+
+        idSorted.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                new GetProducts().execute();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
 
         /*
         Для того чтобы заполнить ListView  нам необходимо создать адптер. Адаптер используется для связи данных (массивы, базы данных)
@@ -72,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
         ivProducts.setAdapter(pAdapter); //Cвязывает подготовленный список с адаптером
         listView = findViewById(R.id.ListProduct);
 
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 loadingPB.setVisibility(View.INVISIBLE);
@@ -83,17 +101,18 @@ public class MainActivity extends AppCompatActivity {
         new GetProducts().execute(); //Подключение к нашей API в отдельном потоке
 
 
-
     }
+
     public void onGoTOTheADDPage(View v) {
         startActivity(new Intent(this, Addendum.class));
     }
+
     private class GetProducts extends AsyncTask<Void, Void, String> {
 
         @Override
         protected String doInBackground(Void... voids) {
             try {
-                URL url = new URL("https://ngknn.ru:5001/NGKNN/герасимовна/api/nameofproducts/search?nameofproductsSearchText="+editTextTextPersonName.getText().toString()+"&field="+idSorted.getSelectedItemPosition());//Строка подключения к нашей API
+                URL url = new URL("https://ngknn.ru:5001/NGKNN/герасимовна/api/nameofproducts/search?nameofproductsSearchText=" + editTextTextPersonName.getText().toString() + "&field=" + idSorted.getSelectedItemPosition());//Строка подключения к нашей API
                 HttpURLConnection connection = (HttpURLConnection) url.openConnection(); //вызываем нашу API
 
                 BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
@@ -121,12 +140,10 @@ public class MainActivity extends AppCompatActivity {
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
             loadingPB.setVisibility(View.VISIBLE);
-            try
-            {
+            try {
                 listProduct.clear();
                 JSONArray tempArray = new JSONArray(s);//преоброзование строки в json массив
-                for (int i = 0;i<tempArray.length();i++)
-                {
+                for (int i = 0; i < tempArray.length(); i++) {
 
                     JSONObject productJson = tempArray.getJSONObject(i);//Преобразование json объекта в нашу структуру
                     Mask tempProduct = new Mask(
@@ -152,8 +169,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void Go()
-    {
+    public void Go() {
         startActivity(new Intent(this, ChangeActivity.class));
     }
 }
